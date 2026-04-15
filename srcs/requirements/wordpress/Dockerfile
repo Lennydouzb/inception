@@ -12,4 +12,4 @@ RUN chmod +x install.sh
 
 EXPOSE 9000
 
-ENTRYPOINT ["/var/www/html/script.sh"]
+ENTRYPOINT ["/var/www/html/install.sh"]
