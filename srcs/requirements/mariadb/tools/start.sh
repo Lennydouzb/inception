@@ -12,4 +12,4 @@ mariadb -e "GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO '${DB_USER}'@'%' WITH GR
 mariadb -e "FLUSH PRIVILEGES;"
 
 mysqladmin -u root shutdown
-exec mysqld --user=mysqld 
+exec mysqld
