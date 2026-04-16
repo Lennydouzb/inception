@@ -10,9 +10,12 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	./wp-cli.phar user create $WP_USER2 $WP_MAIL2 --role=author --user_pass=$WP_PASS2 --allow-root
 	./wp-cli.phar user set-role $WP_USER2 editor --allow-root
 	./wp-cli.phar theme install astra --activate --allow-root
-	echo "define('WP_REDIS_HOST', 'redis');" >> /var/www/html/wp-config
-	echo "define('WP_REDIS_PORT', 6379);" >> /var/www/html/wp-config
-	./wp-cli.phar plugin install redis-cache --activate
+	
 
+	#for redis
+	./wp-cli.phar config set WP_REDIS_HOST redis --type=constant --allow-root
+    ./wp-cli.phar config set WP_REDIS_PORT 6379 --raw --type=constant --allow-root
+    ./wp-cli.phar plugin install redis-cache --activate --allow-root
+    ./wp-cli.phar redis enable --allow-root
 fi
 exec php-fpm8.2 -F
