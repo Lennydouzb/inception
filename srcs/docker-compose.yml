@@ -13,8 +13,28 @@ volumes:
       device: /home/ldesboui/data/wordpress
       o: bind
       type: none
+  adminer:
+    name: adminer
+    driver: local
+    driver_opts:
+      device: /home/ldesboui/data/adminer
+      o: bind
+      type: none
+
 
 services:
+  adminer:
+    container_name: ftp
+    build: ./requirements/bonus/adminer
+    volumes:
+      - adminer:/var/www/html
+    depends_on:
+      - mariadb
+    networks:
+      - inception
+    restart: on-failure
+    env_file:
+      - .env
   redis:
     container_name: redis
     build: ./requirements/bonus/redis
