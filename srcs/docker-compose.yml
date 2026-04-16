@@ -22,7 +22,7 @@ services:
       - wordpress
     networks:
       - inception
-      restart: on-failure
+    restart: on-failure
   nginx:
     container_name: nginx
     build: ./requirements/nginx
