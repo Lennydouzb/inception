@@ -18,4 +18,5 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     ./wp-cli.phar plugin install redis-cache --activate --allow-root
     ./wp-cli.phar redis enable --allow-root
 fi
+chown -R www-data:www-data /var/www/html
 exec php-fpm8.2 -F
