@@ -15,6 +15,14 @@ volumes:
       type: none
 
 services:
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    depends_on: 
+      - wordpress
+    networks:
+      - inception
+      restart: on-failure
   nginx:
     container_name: nginx
     build: ./requirements/nginx
