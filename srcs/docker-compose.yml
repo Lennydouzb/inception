@@ -24,12 +24,13 @@ volumes:
 
 services:
   adminer:
-    container_name: ftp
+    container_name: adminer
     build: ./requirements/bonus/adminer
     volumes:
       - adminer:/var/www/html
     depends_on:
       - mariadb
+      - wordpress
     networks:
       - inception
     restart: on-failure
