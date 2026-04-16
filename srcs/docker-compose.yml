@@ -18,7 +18,7 @@ services:
   redis:
     container_name: redis
     build: ./requirements/bonus/redis
-    volume:
+    volumes:
       - wordpress:/var/www/html
     depends_on: 
       - wordpress
