@@ -13,9 +13,11 @@ start:
 fclean: clean
 	docker system prune -af
 
-clean:
-	docker compose -f ./srcs/docker-compose.yml down
+clean: stop
 	rm -rf $(ORIGIN)
+
+stop:
+	docker compose -f ./srcs/docker-compose.yml down
 
 re: fclean all
 
