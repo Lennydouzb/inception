@@ -43,6 +43,7 @@ when a container is laucnhed you can use somthing like that
 |---------------------------------------------|----------------------------------------------------|
 # Resources
 https://github.com/TFHD/Inception/blob/main/README.md
+
 https://docs.docker.com/compose/
 # Project Description
 In this project docker is used to create an infrastructure for a website creation using wordpress nignx and mariadb.
