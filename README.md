@@ -45,6 +45,11 @@ when a container is laucnhed you can use somthing like that
 https://github.com/TFHD/Inception/blob/main/README.md
 https://docs.docker.com/compose/
 # Project Description
+In this project docker is used to create an infrastructure for a website creation using wordpress nignx and mariadb.
+I used .env to store my credentials.
+
+For the purpose of this exercice no made up images where used and they were all created from an empty debian bookworm, using a Dockerfile for each service.
+Wordpress and mariadb dockerfiles both launch a .sh script that configure respectivley the website using wp-cli, and the database using sql.
 ## Virtual machines vs Docker
 
 A virtual machie is an entire OS, its heavy. A docker container doesnt install entire OS,
