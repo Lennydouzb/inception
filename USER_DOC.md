@@ -75,4 +75,4 @@ when a container is laucnhed you can use those commands
 
 ## Access web services
 
-To access your running website you can use $DOMAIN_NAME:9000 and to access its administration panel go to $DOMAIN_NAME:9000/wp-admin
+To access your running website you can use $DOMAIN_NAME and to access its administration panel go to $DOMAIN_NAME:9000/wp-admin
