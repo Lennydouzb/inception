@@ -32,7 +32,7 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
 
 # Usage
 
-## Commands
+## Installation and setup
 
 To use this project first clone it from github:
 ```bash
@@ -52,8 +52,7 @@ Then, this command must start everything, it might take some time, don't worry.
 make
 ```
 ## Other commands
-|---------------|------------------------------------------------------------------------------|
-| Command       | Description                                                                  |
+| Command       |Description                                                                   |
 |---------------|------------------------------------------------------------------------------|
 | `make`        | Creates data directories and starts all containers in detached mode          |
 |---------------|------------------------------------------------------------------------------|
@@ -65,3 +64,15 @@ make
 |---------------|------------------------------------------------------------------------------|
 | `make re`     | Calls `fclean` then `all` — full teardown and fresh restart                  |
 |---------------|------------------------------------------------------------------------------|
+
+when a container is laucnhed you can use those commands
+
+|---------------------------------------------|----------------------------------------------------|
+| `docker exec -it <container name> <command>`| Executes interactively the command in the container|
+|---------------------------------------------|----------------------------------------------------|
+| `docker ps`                                 | Displays running containers                        |
+|---------------------------------------------|----------------------------------------------------|
+
+## Access web services
+
+To access your running website you can use $DOMAIN_NAME:9000 and to access its administration panel go to $DOMAIN_NAME:9000/wp-admin

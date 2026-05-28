@@ -22,8 +22,7 @@ Then, this command must start everything
 make
 ```
 ## Other commands
-|---------------|------------------------------------------------------------------------------|
-| Command       | Description                                                                  |
+| Command       |Description                                                                   |
 |---------------|------------------------------------------------------------------------------|
 | `make`        | Creates data directories and starts all containers in detached mode          |
 |---------------|------------------------------------------------------------------------------|
