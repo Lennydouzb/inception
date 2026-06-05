@@ -27,8 +27,25 @@ volumes:
       device: /home/ldesboui/data/static_site
       o: bind
       type: none
+  freshrss:
+    name: freshrss
+    driver: local
+    driver_opts:
+      device: /home/ldesboui/data/freshrss
+      o: bind
+      type: none
 
 services:
+  freshrss:
+    container_name: freshrss
+    build: ./requirements/bonus/freshrss
+    networks:
+      - inception
+    restart: on-failure
+    depends_on:
+      - nginx
+    volumes:
+      - freshrss:/var/www/html
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site
@@ -37,7 +54,6 @@ services:
     restart: on-failure
     depends_on:
       - nginx
-    env_file: .env
     volumes:
       - static_site:/var/www/html
   adminer:
@@ -75,6 +91,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - static_site:/var/www/html/static_site
+      - freshrss:/var/www/html/freshrss
     depends_on:
       - wordpress
     restart: on-failure

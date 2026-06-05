@@ -30,6 +30,9 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
 
     Adminer is a web application used to manage the database without having to go in command line inside the docker container. It's an interface to manage the Database in an easier and more accessible way.
 
+## Static page
+    A useless static webpage
+
 # Usage
 
 ## Installation and setup
@@ -78,3 +81,5 @@ when a container is laucnhed you can use those commands
 To access your running website you can use $DOMAIN_NAME and to access its administration panel go to $DOMAIN_NAME/wp-admin
 
 To access adminer you can go $DOMAIN_NAME/adminer. To log in it use your database credentials, the server name is "mariadb" (container name), and the database is "wordpress", use "MySQL/MariaDB" as system.
+
+To access your static webpage it's $DOMAIN_NAME/static_page
