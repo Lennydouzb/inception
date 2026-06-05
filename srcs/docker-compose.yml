@@ -47,7 +47,7 @@ services:
       - inception
     restart: on-failure
     env_file: 
-      -.env
+      - .env
   nginx:
     container_name: nginx
     build: ./requirements/nginx
