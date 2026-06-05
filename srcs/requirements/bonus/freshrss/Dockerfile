@@ -1,6 +1,6 @@
 FROM debian:bookworm
 
-RUN apt update -y && apt upgrade -y
+RUN apt update -y && apt upgrade -y && apt install wget unzip -y
 
 RUN wget https://github.com/FreshRSS/FreshRSS/archive/latest.zip
 RUN unzip FreshRSS-latest.zip -d /tmp/
