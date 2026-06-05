@@ -12,3 +12,5 @@ WP_MAIL=ldesboui@gmail.com
 WP_USER2=ldesboui1
 WP_PASS2=12345
 WP_MAIL2=ldesboui1@gmail.com
+
+REDIS_PASSWORD = 123
