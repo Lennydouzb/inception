@@ -20,9 +20,26 @@ volumes:
       device: /home/ldesboui/data/adminer
       o: bind
       type: none
-
+  static_site:
+    name: static_site
+    driver: local
+    driver_opts:
+      device: /home/ldesboui/data/static_site
+      o: bind
+      type: none
 
 services:
+  static_site:
+    container_name: static_site
+    build: ./requirements/bonus/static_site
+    networks:
+      - inception
+    restart: on-failure
+    depends_on:
+      - nginx
+    env_file: .env
+    volumes:
+      - static_site:/var/www/html
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
