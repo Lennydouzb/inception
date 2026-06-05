@@ -74,6 +74,7 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html
+      - static_site:/var/www/html/static_site
     depends_on:
       - wordpress
     restart: on-failure
@@ -102,7 +103,6 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html
-      - static_site:/var/www/html/static_site
     restart: on-failure
     expose:
       - "9000"
