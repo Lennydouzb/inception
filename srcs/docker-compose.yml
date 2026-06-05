@@ -27,25 +27,25 @@ volumes:
       device: /home/ldesboui/data/static_site
       o: bind
       type: none
-  freshrss:
-    name: freshrss
+  crowdsec:
+    name: crowdsec
     driver: local
     driver_opts:
-      device: /home/ldesboui/data/freshrss
+      device: /home/ldesboui/data/crowdsec
       o: bind
       type: none
 
 services:
-  freshrss:
-    container_name: freshrss
-    build: ./requirements/bonus/freshrss
+  crowdsec:
+    container_name: crowdsec
+    build: ./requirements/bonus/crowdsec
     networks:
       - inception
     restart: on-failure
+    volumes:
+      - crowdsec:/var/log/nginx
     depends_on:
       - nginx
-    volumes:
-      - freshrss:/var/www/html
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site
@@ -91,7 +91,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - static_site:/var/www/html/static_site
-      - freshrss:/var/www/html/freshrss
+      - crowdsec:/var/log/nginx
     depends_on:
       - wordpress
     restart: on-failure

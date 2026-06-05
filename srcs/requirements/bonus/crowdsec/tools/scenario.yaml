@@ -1,0 +1,12 @@
+type: leaky
+name: inception/http-404-scan
+description: "multiple 404 errors"
+filter: "evt.Meta.log_type == 'http_access-log' && evt.Parsed.status == '404'"
+groupby: "evt.Meta.source_ip"
+capacity: 5
+leakspeed: 5s
+blackhole: 1m
+labels:
+  service: http
+  type: scan
+  remediation: true
