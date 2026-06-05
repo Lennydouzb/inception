@@ -75,4 +75,6 @@ when a container is laucnhed you can use those commands
 
 ## Access web services
 
-To access your running website you can use $DOMAIN_NAME and to access its administration panel go to $DOMAIN_NAME:9000/wp-admin
+To access your running website you can use $DOMAIN_NAME and to access its administration panel go to $DOMAIN_NAME/wp-admin
+
+To access adminer you can go $DOMAIN_NAME/adminer. To log in it use your database credentials, the server name is "mariadb" (container name), and the database is "wordpress", use "MySQL/MariaDB" as system.
