@@ -42,7 +42,7 @@ services:
       - wordpress:/var/www/html
     env_file:
       - .env
-      
+
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site
@@ -91,7 +91,6 @@ services:
     volumes:
       - wordpress:/var/www/html
       - static_site:/var/www/html/static_site
-      - crowdsec:/var/log/nginx
     depends_on:
       - wordpress
     restart: on-failure
