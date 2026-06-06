@@ -44,6 +44,10 @@ when a container is laucnhed you can use somthing like that
 https://github.com/TFHD/Inception/blob/main/README.md
 
 https://docs.docker.com/compose/
+
+Ai was used to understand how aspect of docker works (volumes bind mounts etc).
+And for understanding the mistakes i did during the development of this.
+
 # Project Description
 In this project docker is used to create an infrastructure for a website creation using wordpress nignx and mariadb.
 I used .env to store my credentials.
