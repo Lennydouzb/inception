@@ -27,13 +27,6 @@ volumes:
       device: /home/ldesboui/data/static_site
       o: bind
       type: none
-  crowdsec:
-    name: crowdsec
-    driver: local
-    driver_opts:
-      device: /home/ldesboui/data/crowdsec
-      o: bind
-      type: none
 
 services:
   ftp:
@@ -49,18 +42,7 @@ services:
       - wordpress:/var/www/html
     env_file:
       - .env
-  crowdsec:
-    container_name: crowdsec
-    build: ./requirements/bonus/crowdsec
-    networks:
-      - inception
-    restart: on-failure
-    volumes:
-      - crowdsec:/var/log/nginx
-    depends_on:
-      - nginx
-    env_file:
-      - .env
+      
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site
@@ -71,6 +53,7 @@ services:
       - nginx
     volumes:
       - static_site:/var/www/html
+
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
@@ -84,6 +67,7 @@ services:
     restart: on-failure
     env_file:
       - .env
+
   redis:
     container_name: redis
     build: ./requirements/bonus/redis
@@ -96,6 +80,7 @@ services:
     restart: on-failure
     env_file: 
       - .env
+
   nginx:
     container_name: nginx
     build: ./requirements/nginx
