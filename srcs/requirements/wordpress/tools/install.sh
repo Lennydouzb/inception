@@ -21,6 +21,8 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 	#for crowdsec
 	./wp-cli.phar plugin install crowdsec --activate --allow-root
 	./wp-cli.phar crowdsec enable --allow-root
+	/wp-cli.phar option update crowdsec_api_url 'http://crowdsec:8080' --allow-root
+	./wp-cli.phar option update crowdsec_bouncer_key "$CROWDSEC_KEY" --allow-root
 fi
 chown -R www-data:www-data /var/www/html
 exec php-fpm8.2 -F

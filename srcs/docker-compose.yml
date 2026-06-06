@@ -36,6 +36,20 @@ volumes:
       type: none
 
 services:
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    networks:
+      - inception
+    restart: on-failure 
+    ports:
+      - "21:21"
+      - "20:20"
+      - "30000-30009:30000-30009"
+    volumes:
+      - wordpress:/var/www/html
+    env_file:
+      - .env
   crowdsec:
     container_name: crowdsec
     build: ./requirements/bonus/crowdsec
@@ -46,6 +60,8 @@ services:
       - crowdsec:/var/log/nginx
     depends_on:
       - nginx
+    env_file:
+      - .env
   static_site:
     container_name: static_site
     build: ./requirements/bonus/static_site

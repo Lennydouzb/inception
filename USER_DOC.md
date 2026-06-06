@@ -21,10 +21,17 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
     
     Wordpress is a content management system, which is a web application used to manage and create websites. This service is what you will see the most as the main interface and the main objective of this infrastructure. It relies on Nginx and mariadb.
 
+## FTP
+
+    FTP is a protocol used to do file file transfer, it permits us to access the storage of wordpress from outside the container (for retrieving or pushing files).
+
 ## Redis
 
     Redis is a server that permits to store wordpress data directly in the RAM so the wordpress doesnt have to query the DB for everyone. It makes everything faster.
     It's coupled with the plugin redis-cache in wordpress.
+
+## Crowdsec
+    Crowdsec is a server for analysing logs and make decision concerning these logs (such as banning ips). It's a blue team tool  for cybersecurity.  This server is only configured to ban some seconds in case of a scan (multiple 404 errors in a short timespan).
 
 ## Adminer
 
@@ -38,6 +45,7 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
 ## Installation and setup
 
 To use this project first clone it from github:
+
 ```bash
 git clone https://github.com/Lennydouzb/inception.git
 cd inception
@@ -83,3 +91,5 @@ To access your running website you can use $DOMAIN_NAME and to access its admini
 To access adminer you can go $DOMAIN_NAME/adminer. To log in it use your database credentials, the server name is "mariadb" (container name), and the database is "wordpress", use "MySQL/MariaDB" as system.
 
 To access your static webpage it's $DOMAIN_NAME/static_page
+
+To use the ftp server you must use a FTP client such as filezilla and connect it to your FTPUSER and FTPPASS
