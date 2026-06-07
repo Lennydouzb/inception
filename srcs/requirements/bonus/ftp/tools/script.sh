@@ -13,7 +13,9 @@ pasv_addr_resolve=YES
 seccomp_sandbox=NO
 allow_writeable_chroot=YES" >> /etc/vsftpd.conf
 mkdir -p /var/run/vsftpd/empty
-useradd -m -s /bin/bash $FTPUSER -d /var/www/html
+if ! id "$FTPUSER" &>/dev/null; then
+    useradd -m -s /bin/bash $FTPUSER -d /var/www/html
+fi
 usermod -aG www-data $FTPUSER
 echo "$FTPUSER:$FTPPASS" | chpasswd
 exec vsftpd /etc/vsftpd.conf
