@@ -3,7 +3,7 @@ _This project has been created as part of the 42 curriculum by ldesboui._
 # Description
 
 Inception is a docker project in which a simple command as "make" provides an entire infrastructure with a DataBase,
-a NGINX web server and a Wordpress site entirely configured and ready to use (+ other service with bonus).
+a NGINX web server and a Wordpress site entirely configured and ready to use. Adminer, redis and a ftp server are also available and entirely configured. A static webpage is also there.
 This project permits us to understand the usage of docker and its power as a devops tool.
 
 # Instructions
@@ -45,7 +45,7 @@ https://github.com/TFHD/Inception/blob/main/README.md
 
 https://docs.docker.com/compose/
 
-Ai was used to understand how aspect of docker works (volumes bind mounts etc).
+Ai was used to understand how certain aspect of docker works (volumes bind mounts etc).
 And for understanding the mistakes i did during the development of this.
 
 # Project Description
@@ -53,7 +53,7 @@ In this project docker is used to create an infrastructure for a website creatio
 I used .env to store my credentials.
 
 For the purpose of this exercice no made up images where used and they were all created from an empty debian bookworm, using a Dockerfile for each service.
-Wordpress and mariadb dockerfiles both launch a .sh script that configure respectivley the website using wp-cli, and the database using sql.
+Wordpress and mariadb and ftp dockerfiles launch a .sh script that configure respectivley the website using wp-cli, and the database using sql.
 ## Virtual machines vs Docker
 
 A virtual machie is an entire OS, its heavy. A docker container doesnt install entire OS,

@@ -30,9 +30,6 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
     Redis is a server that permits to store wordpress data directly in the RAM so the wordpress doesnt have to query the DB for everyone. It makes everything faster.
     It's coupled with the plugin redis-cache in wordpress.
 
-## Crowdsec
-    Crowdsec is a server for analysing logs and make decision concerning these logs (such as banning ips). It's a blue team tool  for cybersecurity.  This server is only configured to ban some seconds in case of a scan (multiple 404 errors in a short timespan).
-
 ## Adminer
 
     Adminer is a web application used to manage the database without having to go in command line inside the docker container. It's an interface to manage the Database in an easier and more accessible way.
@@ -92,4 +89,5 @@ To access adminer you can go $DOMAIN_NAME/adminer. To log in it use your databas
 
 To access your static webpage it's $DOMAIN_NAME/static_page
 
-To use the ftp server you must use a FTP client such as filezilla and connect it to your FTPUSER and FTPPASS
+To use the ftp server you must use a FTP client such as filezilla and connect it to your FTPUSER and FTPPASS to $DOMAIN_NAME using port 21.
+Be carefull. when you push something onto the wordpress volume its in rw-rw----, can't push anything with x for security reason. Evrything is gonna be owned by www-data group
