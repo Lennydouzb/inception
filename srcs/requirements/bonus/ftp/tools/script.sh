@@ -11,7 +11,7 @@ pasv_max_port=30009
 pasv_address=127.0.0.1
 pasv_addr_resolve=YES
 seccomp_sandbox=NO
-allow_writeable_chroot=YES" >> /etc/vsftpd.conf
+allow_writeable_chroot=YES" > /etc/vsftpd.conf
 mkdir -p /var/run/vsftpd/empty
 if ! id "$FTPUSER" &>/dev/null; then
     useradd -m -s /bin/bash $FTPUSER -d /var/www/html
