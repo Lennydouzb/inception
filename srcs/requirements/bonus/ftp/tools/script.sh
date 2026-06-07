@@ -9,9 +9,10 @@ local_enable=YES
 pasv_enable=YES
 pasv_min_port=30000
 pasv_max_port=30009
-pasv_address=0.0.0.0
+seccomp_sandbox=NO
 allow_writeable_chroot=YES" >> /etc/vsftpd.conf
 mkdir -p /var/run/vsftpd/empty
 useradd -m -s /bin/bash $FTPUSER -d /var/www/html
+usermod -aG www-data $FTPUSER
 echo "$FTPUSER:$FTPPASS" | chpasswd
 exec vsftpd /etc/vsftpd.conf
