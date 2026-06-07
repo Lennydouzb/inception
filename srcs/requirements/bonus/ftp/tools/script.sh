@@ -5,6 +5,7 @@ listen=YES
 local_enable=YES
 write_enable=YES
 chroot_local_user=YES
+local_enable=YES
 pasv_enable=YES
 pasv_min_port=30000
 pasv_max_port=30009
