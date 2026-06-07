@@ -17,13 +17,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     ./wp-cli.phar config set WP_REDIS_PORT 6379 --raw --type=constant --allow-root
     ./wp-cli.phar plugin install redis-cache --activate --allow-root
     ./wp-cli.phar redis enable --allow-root
-
-	#for crowdsec
-	./wp-cli.phar plugin install crowdsec --activate --allow-root
-	./wp-cli.phar crowdsec enable --allow-root
-	./wp-cli.phar option update crowdsec_api_url 'http://crowdsec:8080' --allow-root
-	./wp-cli.phar option update crowdsec_bouncer_key "$CROWDSEC_KEY" --allow-root
-fi
 chown -R www-data:www-data /var/www/html
 chmod -R 775 /var/www/html
 exec php-fpm8.2 -F
