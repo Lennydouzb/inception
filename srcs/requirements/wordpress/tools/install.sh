@@ -1,6 +1,9 @@
 #!/bin/bash
 
 if [ ! -f /var/www/html/wp-config.php ]; then
+	while ! mariadb -h mariadb -u $DB_USER -p$DB_PASSWORD -e "SELECT 1;" &> /dev/null; do
+        sleep 2
+    done
     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	chmod +x wp-cli.phar
 
