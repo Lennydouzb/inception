@@ -53,9 +53,6 @@ services:
       - nginx
     volumes:
       - static_site:/var/www/html
-    ports:
-      - "80:80"
-
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
