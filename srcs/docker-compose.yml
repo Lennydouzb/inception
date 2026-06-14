@@ -53,6 +53,7 @@ services:
       - nginx
     volumes:
       - static_site:/var/www/html
+
   adminer:
     container_name: adminer
     build: ./requirements/bonus/adminer
@@ -72,8 +73,6 @@ services:
     build: ./requirements/bonus/redis
     volumes:
       - wordpress:/var/www/html
-    depends_on: 
-      - wordpress
     networks:
       - inception
     restart: on-failure
@@ -89,6 +88,7 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html
+      - static_site:/var/www/html/static_site
     depends_on:
       - wordpress
     restart: on-failure
@@ -113,6 +113,7 @@ services:
     build: ./requirements/wordpress
     depends_on:
       - mariadb
+      - redis
     networks:
       - inception
     volumes:
