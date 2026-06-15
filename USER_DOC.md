@@ -1,10 +1,6 @@
 *User documentation for Inception by ldesboui*
 
-This document explains the services included (nginx, WordPress, MariaDB, Adminer, Redis), how to use the `Makefile` targets that manage the Docker infrastructure, how to create your `.env` file from the example, and how to check running containers.
-
-# Table of Contents
-    - [Services](#services)
-    - [Usage](#usage)
+This document explains the services included (nginx, WordPress, MariaDB, Adminer, Redis and ftp), how to use the `Makefile` targets that manage the Docker infrastructure, how to create your `.env` file from the example, and how to check running containers.
 
 # Services
 
@@ -23,7 +19,7 @@ This document explains the services included (nginx, WordPress, MariaDB, Adminer
 
 ## FTP
 
-    FTP is a protocol used to do file file transfer, it permits us to access the storage of wordpress from outside the container (for retrieving or pushing files).
+    FTP is a protocol used to do file transfer, it permits us to access the storage of wordpress from outside the container (for retrieving or pushing files).
 
 ## Redis
 
@@ -71,15 +67,14 @@ make
 | `make fclean` | Calls `clean` then runs `docker system prune -af` (removes images, networks) |
 |---------------|------------------------------------------------------------------------------|
 | `make re`     | Calls `fclean` then `all` — full teardown and fresh restart                  |
-|---------------|------------------------------------------------------------------------------|
+
 
 when a container is laucnhed you can use those commands
 
-|---------------------------------------------|----------------------------------------------------|
+
 | `docker exec -it <container name> <command>`| Executes interactively the command in the container|
 |---------------------------------------------|----------------------------------------------------|
 | `docker ps`                                 | Displays running containers                        |
-|---------------------------------------------|----------------------------------------------------|
 
 ## Access web services
 
@@ -90,4 +85,4 @@ To access adminer you can go $DOMAIN_NAME/adminer. To log in it use your databas
 To access your static webpage it's $DOMAIN_NAME/static_page
 
 To use the ftp server you must use a FTP client such as filezilla and connect it to your FTPUSER and FTPPASS to $DOMAIN_NAME using port 21.
-Be carefull. when you push something onto the wordpress volume its in rw-rw----, can't push anything with x for security reason. Evrything is gonna be owned by www-data group
+Be carefull. when you push something onto the wordpress volume its in rw-rw----, can't push anything with x for security reason. Everything is gonna be owned by www-data group

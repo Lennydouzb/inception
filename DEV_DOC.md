@@ -7,7 +7,7 @@ This document explains how to set up the Inception environment from scratch, bui
 ## Prerequisites
 
 - Docker installed and running
-- Docker Compose v2 available (`docker compose`)
+- Docker Compose available (`docker compose`)
 - Make installed
 - Access to the project repository on the host machine
 
@@ -64,12 +64,12 @@ This document explains how to set up the Inception environment from scratch, bui
 | `make fclean` | Calls `clean` then runs `docker system prune -af` (removes images, networks) |
 |---------------|------------------------------------------------------------------------------|
 | `make re`     | Calls `fclean` then `all` — full teardown and fresh restart                  |
-|---------------|------------------------------------------------------------------------------|
+
 
 ## Data storage and persistence
 
 Project data is persisted by Docker volumes configured in `srcs/docker-compose.yml`.
-All these volumes are located at /home/username/data
+All these volumes are located at /home/LOGIN/data
 
 - Database data is stored in the mariadb volume.
 - WordPress files, uploads, and any persistent site content are stored in dedicated service volumes.
